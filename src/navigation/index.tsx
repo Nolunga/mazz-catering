@@ -9,7 +9,7 @@ import { PUBLIC_ROUTES } from './routes'
 const Public = Loadable(() => import('./Public'), {
   fallback: (
     <Center height="100vh">
-      <Spinner color="primary.500" size="xl" />
+      <Spinner color="#dfae68" size="xl" />
     </Center>
   )
 })

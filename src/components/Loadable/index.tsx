@@ -1,5 +1,5 @@
 import { Center, Spinner } from '@chakra-ui/react'
-import { lazy, Suspense } from 'react'
+import { Suspense, lazy } from 'react'
 
 type TLoadableOptions = {
   fallback?: React.ReactNode
@@ -12,7 +12,7 @@ export type LoadableComponentType = React.LazyExoticComponent<React.ComponentTyp
 const Loadable = (factory: typeof lazy['arguments']['factory'], options: TLoadableOptions = {}) => {
   const fallback = options.fallback || (
     <Center height="100vh">
-      <Spinner color="primary.500" size="xl" />
+      <Spinner color="#dfae68" size="xl" />
     </Center>
   )
 
