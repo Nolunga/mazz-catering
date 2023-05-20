@@ -404,7 +404,7 @@ const LandingPage = () => {
                     onChange={({ target }) => setDate(target.value)}
                     type="date"
                     width="45%"
-                    placeContent="Event Date"
+                    placeholder="Event Date"
                   />
                 </Flex>
                 <Textarea
