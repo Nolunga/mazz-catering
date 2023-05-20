@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Flex,
   Heading,
@@ -198,12 +197,18 @@ const LandingPage = () => {
               </Flex>
             </Flex>
             <Flex position="absolute" height="100%" width="100%" backgroundColor="#dfae68">
-              <Image src={images.Chaffin} objectFit="fill" height="90%" width={['100%', '90%']} />
-              <Box
-                position="relative"
-                w="100%"
-                h="200px"
-                bgGradient="linear(black.100 0%, orange.100 25%, black.100 50%)"
+              <Image
+                src={images.Chaffin}
+                objectFit="fill"
+                height="90%"
+                width={['100%', '90%']}
+                justifyContent="center"
+              />
+              <Flex
+                position="absolute"
+                height="90%"
+                width={['100%', '90%']}
+                bgGradient="linear(transparent 0%, rgba(0,0,0,0.3) 25%, rgba(0,0,0,0.4) 50%)"
               />
             </Flex>
           </Flex>
@@ -300,14 +305,15 @@ const LandingPage = () => {
                 setShowService(true)
               }}
             >
-              <Image
-                src={item.image}
+              <Image src={item.image} position="absolute" boxSize="100%" left={-10} bottom={10} />
+              <Flex
                 position="absolute"
-                backgroundColor="red"
                 boxSize="100%"
                 left={-10}
                 bottom={10}
+                bgGradient="linear(transparent 0%, rgba(0,0,0,0.2) 25%, rgba(0,0,0,0.2) 50%)"
               />
+
               <Flex
                 backgroundColor="#dfae68"
                 boxSize="100%"
@@ -361,6 +367,12 @@ const LandingPage = () => {
               marginBottom={5}
             >
               <Image src={images.Image11} height="320px" width="100%" objectFit="cover" />
+              <Flex
+                position="absolute"
+                height="320px"
+                width="90%"
+                bgGradient="linear(transparent 0%, rgba(0,0,0,0.2) 25%, rgba(0,0,0,0.2) 50%)"
+              />
               <Flex backgroundColor="#342c24" flexDirection="column" width="100%" padding={5}>
                 <Flex justifyContent="space-between">
                   <Input
