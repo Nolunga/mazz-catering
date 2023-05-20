@@ -16,6 +16,7 @@ import CountUp from 'react-countup'
 import { LogoComponent } from '../../components'
 import images from '../../theme/images'
 
+import axios from 'axios'
 import BearCarousel, { BearSlideItem, TBearSlideItemDataList } from 'bear-react-carousel'
 import { useState } from 'react'
 
@@ -109,6 +110,39 @@ const LandingPage = () => {
   const [showService, setShowService] = useState(false)
   const [service, setService] = useState<typeof SERVICES[number]>()
 
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phoneNumber, setPhoneNumber] = useState('')
+  const [date, setDate] = useState('')
+  const [message, setMessage] = useState('')
+
+  const onSendMessage = async () => {
+    try {
+      await axios.post('https://mtszgvslrwq25aecqk3vjtdrsa0naaqg.lambda-url.eu-north-1.on.aws/', {
+        name,
+        email,
+        phoneNumber,
+        date,
+        message
+      })
+      toast({
+        title: 'Success',
+        description: 'Meessage sent successfully',
+        status: 'success'
+      })
+      setName('')
+      setEmail('')
+      setPhoneNumber('')
+      setDate('')
+      setMessage('')
+    } catch (error) {
+      toast({
+        title: 'Error',
+        description: 'Error Sending Message',
+        status: 'error'
+      })
+    }
+  }
   return (
     <Flex width="100%" flexDirection="column" color="white" backgroundColor="#29251f">
       <Flex
@@ -329,15 +363,41 @@ const LandingPage = () => {
               <Image src={images.Image11} height="320px" width="100%" objectFit="cover" />
               <Flex backgroundColor="#342c24" flexDirection="column" width="100%" padding={5}>
                 <Flex justifyContent="space-between">
-                  <Input placeholder="Name" width="45%" />
-                  <Input placeholder="Email" width="45%" />
+                  <Input
+                    value={name}
+                    onChange={({ target }) => setName(target.value)}
+                    placeholder="Name"
+                    width="45%"
+                  />
+                  <Input
+                    value={email}
+                    onChange={({ target }) => setEmail(target.value)}
+                    placeholder="Email"
+                    width="45%"
+                  />
                 </Flex>
                 <Flex marginTop={5} marginBottom={5} justifyContent="space-between">
-                  <Input type="tel" width="45%" placeholder="Phone Number" />
-                  <Input type="date" width="45%" placeContent="Event Date" />
+                  <Input
+                    value={phoneNumber}
+                    onChange={({ target }) => setPhoneNumber(target.value)}
+                    type="tel"
+                    width="45%"
+                    placeholder="Phone Number"
+                  />
+                  <Input
+                    value={date}
+                    onChange={({ target }) => setDate(target.value)}
+                    type="date"
+                    width="45%"
+                    placeContent="Event Date"
+                  />
                 </Flex>
-                <Textarea placeholder="Message" />
-                <Button marginTop={5} backgroundColor="#dfae68">
+                <Textarea
+                  value={message}
+                  onChange={({ target }) => setMessage(target.value)}
+                  placeholder="Message"
+                />
+                <Button onClick={onSendMessage} marginTop={5} backgroundColor="#dfae68">
                   Send
                 </Button>
               </Flex>
