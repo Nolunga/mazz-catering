@@ -353,8 +353,16 @@ const LandingPage = () => {
           </Heading>
           <Flex flexDirection="column" alignContent="space-evenly" width="100%" height="100%">
             <Text textAlign="center">8 Outeniqua street, Rondebult, Germiston, 1423</Text>
-            <Text textAlign="center">(+27) 083 699 1417</Text>
-            <Text textAlign="center">faithzanelengcakane@gmail.com</Text>
+            <a href="tel: (+27)83 699 1417">
+              <Text textAlign="center" cursor="pointer">
+                (+27) 083 699 1417
+              </Text>
+            </a>
+            <a href="mailto:faithzanelengcakane@gmail.com">
+              <Text textAlign="center" cursor="pointer">
+                faithzanelengcakane@gmail.com
+              </Text>
+            </a>
           </Flex>
         </Flex>
         <Flex marginTop="100px" position="relative" width={['100%', '50%']} flexDirection="column">
