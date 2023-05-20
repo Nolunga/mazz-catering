@@ -367,12 +367,7 @@ const LandingPage = () => {
               marginBottom={5}
             >
               <Image src={images.Image11} height="320px" width="100%" objectFit="cover" />
-              <Flex
-                position="absolute"
-                height="320px"
-                width="90%"
-                bgGradient="linear(transparent 0%, rgba(0,0,0,0.2) 25%, rgba(0,0,0,0.2) 50%)"
-              />
+
               <Flex backgroundColor="#342c24" flexDirection="column" width="100%" padding={5}>
                 <Flex justifyContent="space-between">
                   <Input
