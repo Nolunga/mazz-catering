@@ -56,8 +56,8 @@ const LandingPage = () => {
       value: 20
     },
     {
-      title: 'Happy Customers',
-      value: 1024
+      title: 'People catered for',
+      value: 96000
     },
     {
       title: 'Catering Capacity',
@@ -65,7 +65,7 @@ const LandingPage = () => {
     },
     {
       title: 'Team',
-      value: 43
+      value: 12
     }
   ]
 
